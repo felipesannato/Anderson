@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ebd8ad"/>
+      <stop offset="50%" stop-color="#c5a880"/>
+      <stop offset="100%" stop-color="#8e7046"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo Escuro Sofisticado -->
+  <rect width="600" height="200" rx="16" fill="#0c0b0a"/>
+
+  <!-- Ícone / Monograma Geométrico Arquitetônico (AV) -->
+  <g transform="translate(40, 25)">
+    <!-- Moldura Hexagonal / Estrutural -->
+    <polygon points="75,8 135,42 135,108 75,142 15,108 15,42" 
+             fill="#181614" stroke="url(#goldGradient)" stroke-width="3" />
+    <!-- Vértices -->
+    <circle cx="75" cy="8" r="3.5" fill="#dec082"/>
+    <circle cx="75" cy="142" r="3.5" fill="#dec082"/>
+    <!-- Letra A Estrutural -->
+    <polyline points="42,105 75,32 108,105" fill="none" stroke="#f7f5f2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="56" y1="78" x2="94" y2="78" stroke="url(#goldGradient)" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Letra V Dinâmica -->
+    <polyline points="60,48 75,82 90,48" fill="none" stroke="url(#goldGradient)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Tipografia Principal: ANDERSON VIANA -->
+  <text x="210" y="98" 
+        font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" 
+        font-size="32" 
+        font-weight="700" 
+        letter-spacing="7" 
+        fill="#f7f5f2">
+    ANDERSON VIANA
+  </text>
+
+  <!-- Linha Divisória de Alta Precisão -->
+  <line x1="212" y1="114" x2="550" y2="114" stroke="url(#goldGradient)" stroke-width="1.5" stroke-opacity="0.8"/>
+
+  <!-- Subtítulo: ARQUITETURA & INTERIORES -->
+  <text x="214" y="138" 
+        font-family="'Montserrat', 'Helvetica Neue', sans-serif" 
+        font-size="13" 
+        font-weight="500" 
+        letter-spacing="9" 
+        fill="#c5a880">
+    ARQUITETURA &amp; INTERIORES
+  </text>
+</svg>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anderson Viana Arquitetura | Projetos de Alto Padrão e Interiores</title>
+    <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            100: '#fbf7ee',
+                            200: '#f4ebd4',
+                            300: '#ebd8ad',
+                            400: '#dec082',
+                            500: '#c5a880',
+                            600: '#b08f61',
+                            700: '#8e7046',
+                            900: '#564227',
+                        },
+                        stonebg: {
+                            50: '#fdfcfb',
+                            100: '#f7f5f2',
+                            200: '#ede9e2',
+                            800: '#22201e',
+                            900: '#151413',
+                            950: '#0c0b0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .bg-architect-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(197, 168, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(197, 168, 128, 0.05) 1px, transparent 1px);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #e7cda2 0%, #c5a880 50%, #9c7b4e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-gold-gradient {
+            border-image: linear-gradient(to right, #c5a880, #ebd8ad, #8e7046) 1;
+        }
+        .gold-glow {
+            box-shadow: 0 0 35px -5px rgba(197, 168, 128, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-stonebg-950 text-stone-200 antialiased font-sans selection:bg-gold-500 selection:text-black">
+
+    <!-- ========================================== -->
+    <!-- HEADER & NAVBAR                            -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-stonebg-950/90 backdrop-blur-md border-b border-stone-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            
+            <!-- LOGOTIPO EXCLUSIVO ANDERSON VIANA ARQUITETURA -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <!-- SVG Monograma Arquitetônico (AV) -->
+                <div class="relative w-12 h-12 flex items-center justify-center flex-shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-full h-full transition transform group-hover:scale-105 duration-300">
+                        <!-- Fundo Moldura Hexagonal / Estrutural -->
+                        <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" 
+                                 fill="#1a1816" stroke="#c5a880" stroke-width="2.5" class="transition-colors group-hover:stroke-gold-400" />
+                        <!-- Geometria 'A' e 'V' integrada -->
+                        <polyline points="28,70 50,22 72,70" fill="none" stroke="#f4ebd4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="37" y1="52" x2="63" y2="52" stroke="#c5a880" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Linha Descendente 'V' -->
+                        <polyline points="40,32 50,55 60,32" fill="none" stroke="#c5a880" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="50" cy="5" r="2.5" fill="#c5a880"/>
+                        <circle cx="50" cy="95" r="2.5" fill="#c5a880"/>
+                    </svg>
+                </div>
+                
+                <!-- Tipografia do Logo -->
+                <div class="flex flex-col justify-center">
+                    <span class="font-serif text-lg sm:text-xl font-bold tracking-[0.22em] text-white uppercase group-hover:text-gold-300 transition-colors">
+                        Anderson Viana
+                    </span>
+                    <span class="text-[10px] sm:text-[11px] font-heading font-medium tracking-[0.38em] text-gold-500 uppercase mt-0.5">
+                        Arquitetura & Interiores
+                    </span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-heading font-semibold tracking-widest uppercase text-stone-400">
+                <a href="#sobre" class="hover:text-gold-400 transition-colors">O Arquiteto</a>
+                <a href="#portfolio" class="hover:text-gold-400 transition-colors">Projetos</a>
+                <a href="#metodologia" class="hover:text-gold-400 transition-colors">Metodologia</a>
+                <a href="#calculadora" class="hover:text-gold-400 transition-colors">Simulador de Obra</a>
+                <a href="#depoimentos" class="hover:text-gold-400 transition-colors">Depoimentos</a>
+                <a href="#contato" class="hover:text-gold-400 transition-colors">Contato</a>
+            </nav>
+
+            <!-- CTA VIP WhatsApp -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5521999999999?text=Olá%20Anderson%20Viana,%20gostaria%20de%20conversar%20sobre%20um%20novo%20projeto%20de%20arquitetura." target="_blank"
+                   class="px-5 py-2.5 rounded-full border border-gold-500/60 bg-gold-500/10 hover:bg-gold-500 hover:text-stone-950 text-gold-300 text-xs font-heading font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 group">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Iniciar Projeto</span>
+                    <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION CINEMATOGRÁFICA               -->
+    <!-- ========================================== -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-architect-grid">
+        
+        <!-- Fundo Imagem de Arquitetura de Luxo Escurecida -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Arquitetura de Alto Padrão Anderson Viana" 
+                 class="w-full h-full object-cover object-center opacity-25 filter brightness-75 scale-105 transform hover:scale-100 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-stonebg-950 via-stonebg-950/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-stonebg-950 via-transparent to-stonebg-950"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+            
+            <!-- Badge de Posicionamento -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-stone-900/90 border border-gold-500/40 text-gold-400 text-xs font-heading font-medium tracking-widest uppercase shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                <span>Projetos Residenciais Contemporâneos & Interiores de Alto Padrão</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+                Arquitetura que traduz sua essência em formas, luz e <span class="text-gold-gradient font-normal italic">sofisticação</span>.
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="text-base sm:text-lg md:text-xl text-stone-300 font-sans font-light max-w-2xl mx-auto leading-relaxed">
+                Do conceito inicial à entrega das chaves. Criamos projetos autorais que combinam estética contemporânea, conforto térmico, integração com a natureza e gestão rigorosa de obras.
+            </p>
+
+            <!-- Botoes de Ação do Hero -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#calculadora" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 hover:from-gold-500 hover:to-gold-400 text-stonebg-950 font-heading font-bold text-xs tracking-widest uppercase shadow-2xl gold-glow transition-all duration-300 transform hover:-translate-y-1">
+                    Simular Orçamento de Projeto
+                </a>
+                <a href="#portfolio" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-stone-900/80 hover:bg-stone-800 text-white font-heading font-semibold text-xs tracking-widest uppercase border border-stone-700 hover:border-gold-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Explorar Portfólio</span>
+                    <span>↓</span>
+                </a>
+            </div>
+
+            <!-- Selos de Credibilidade -->
+            <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-stone-800/80 text-center">
+                <div class="space-y-1">
+                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400">100%</div>
+                    <div class="text-[11px] font-heading font-medium tracking-wider uppercase text-stone-400">Projetos Exclusivos</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400">BIM 3D</div>
+                    <div class="text-[11px] font-heading font-medium tracking-wider uppercase text-stone-400">Compatibilização Real</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400">Turnkey</div>
+                    <div class="text-[11px] font-heading font-medium tracking-wider uppercase text-stone-400">Gestão de Obra Total</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400">CAU/RJ</div>
+                    <div class="text-[11px] font-heading font-medium tracking-wider uppercase text-stone-400">Registro Profissional</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- O ESCRITÓRIO & ANDERSON VIANA             -->
+    <!-- ========================================== -->
+    <section id="sobre" class="py-24 bg-stonebg-900 border-t border-stone-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Coluna Imagem / Destaque do Arquiteto -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Anderson Viana Arquiteto" 
+                                 class="w-full h-[520px] object-cover filter grayscale contrast-125 hover:grayscale-0 transition duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stonebg-950 via-transparent to-transparent"></div>
+                            
+                            <!-- Selo no Rodapé da Foto -->
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-stonebg-950/80 backdrop-blur-md border border-stone-700/80 text-left">
+                                <div class="font-serif text-lg font-bold text-white">Anderson Viana</div>
+                                <div class="text-xs font-heading font-medium tracking-wider uppercase text-gold-400">Arquiteto & Urbanista Principal</div>
+                            </div>
+                        </div>
+
+                        <!-- Card Flutuante de Estilo -->
+                        <div class="absolute -top-6 -right-6 bg-stone-900 border border-gold-500/40 p-4 rounded-xl shadow-xl hidden sm:block">
+                            <div class="text-xs font-heading font-bold uppercase tracking-wider text-gold-400">Conceito Autoral</div>
+                            <div class="text-sm font-serif text-white mt-1">Biofilia & Minimalismo Quente</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna de Conteúdo -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-heading font-bold uppercase tracking-[0.25em] text-gold-500">
+                        Filosofia Arquitetônica
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+                        Criamos refúgios onde a arquitetura se encontra com a arte de viver bem.
+                    </h2>
+                    
+                    <p class="text-stone-300 font-light text-base sm:text-lg leading-relaxed">
+                        Acreditamos que a verdadeira arquitetura de luxo não reside na ostentação desnecessária, mas sim na <strong>proporção harmônica, na pureza dos materiais nobres</strong> (pedra natural, madeira e concreto aparente) e na fluidez com que a luz solar acaricia cada cômodo.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="p-5 rounded-xl bg-stone-950 border border-stone-800 hover:border-gold-500/40 transition">
+                            <div class="text-gold-400 text-xl font-serif mb-2">01. Iluminação Cênica</div>
+                            <p class="text-xs text-stone-400 leading-relaxed">
+                                Projetos luminotécnicos integrados que criam atmosferas intimistas e valorizam cada ângulo à noite.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-stone-950 border border-stone-800 hover:border-gold-500/40 transition">
+                            <div class="text-gold-400 text-xl font-serif mb-2">02. Integração In & Out</div>
+                            <p class="text-xs text-stone-400 leading-relaxed">
+                                Vãos livres generosos e esquadrias embutidas que unem salas de estar a jardins e áreas gourmet.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-stone-950 border border-stone-800 hover:border-gold-500/40 transition">
+                            <div class="text-gold-400 text-xl font-serif mb-2">03. Eficiência & Térmica</div>
+                            <p class="text-xs text-stone-400 leading-relaxed">
+                                Orientação solar calculada para garantir ambientes frescos no verão e acolhedores no inverno.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-stone-950 border border-stone-800 hover:border-gold-500/40 transition">
+                            <div class="text-gold-400 text-xl font-serif mb-2">04. Orçamento Blindado</div>
+                            <p class="text-xs text-stone-400 leading-relaxed">
+                                Detalhamento milimétrico em BIM para evitar qualquer desperdício ou surpresa orçamentária na obra.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contato" class="inline-flex items-center gap-3 text-gold-400 hover:text-gold-300 font-heading text-xs font-bold tracking-widest uppercase border-b border-gold-500/50 pb-1">
+                            <span>Agendar Consulta de Alinhamento com o Arquiteto</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PORTFÓLIO DE PROJETOS SELECIONADOS         -->
+    <!-- ========================================== -->
+    <section id="portfolio" class="py-24 bg-stonebg-950 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs font-heading font-bold uppercase tracking-[0.25em] text-gold-500">
+                        Obras & Criações
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mt-2">
+                        Projetos Selecionados
+                    </h2>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-heading tracking-widest uppercase text-stone-400">
+                    <span class="px-3 py-1.5 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30">Todos</span>
+                    <span class="px-3 py-1.5 rounded-full hover:bg-stone-800 transition cursor-pointer">Residencial</span>
+                    <span class="px-3 py-1.5 rounded-full hover:bg-stone-800 transition cursor-pointer">Interiores</span>
+                    <span class="px-3 py-1.5 rounded-full hover:bg-stone-800 transition cursor-pointer">Comercial</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Projeto 1 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 hover:border-gold-500/50 transition-all duration-500">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Casa Horizonte" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between text-[11px] font-heading font-semibold uppercase tracking-wider text-gold-400">
+                            <span>Residencial • 480m²</span>
+                            <span>Concluído</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">
+                            Casa Horizonte
+                        </h3>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed">
+                            Residência em balanço com estrutura mista de aço e concreto, piscina com borda infinita e integração total com o vale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 hover:border-gold-500/50 transition-all duration-500">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Apartamento Jardins" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between text-[11px] font-heading font-semibold uppercase tracking-wider text-gold-400">
+                            <span>Interiores • 260m²</span>
+                            <span>Concluído</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">
+                            Penthouse Viana
+                        </h3>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed">
+                            Marcenaria sob medida em freijó natural, iluminação linear invisível e curadoria de arte brasileira contemporânea.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 hover:border-gold-500/50 transition-all duration-500">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Villa Serenità" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between text-[11px] font-heading font-semibold uppercase tracking-wider text-gold-400">
+                            <span>Casa de Campo • 620m²</span>
+                            <span>Em Execução</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">
+                            Villa Serenità
+                        </h3>
+                        <p class="text-xs text-stone-400 font-light leading-relaxed">
+                            Arquitetura de refúgio na serra com pedra bruta, lareira central suspensa e painéis solares totalmente integrados ao telhado.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SIMULADOR INTERATIVO DE ORÇAMENTO DE PROJETO (CONVERSÃO MÁXIMA) -->
+    <!-- ============================================================== -->
+    <section id="calculadora" class="py-24 bg-stonebg-900 border-t border-stone-800 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-xs font-heading font-bold uppercase tracking-[0.25em] text-gold-500">
+                    Ferramenta Exclusiva
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Simulador de Escopo e Investimento
+                </h2>
+                <p class="text-stone-400 text-sm font-light">
+                    Selecione as características do seu imóvel para receber uma estimativa instantânea de cronograma e escopo de projeto.
+                </p>
+            </div>
+
+            <!-- Card da Calculadora -->
+            <div class="bg-stonebg-950 rounded-3xl p-6 sm:p-10 border border-gold-500/30 shadow-2xl space-y-8">
+                
+                <!-- Passo 1: Tipo de Projeto -->
+                <div class="space-y-3">
+                    <label class="text-xs font-heading font-bold uppercase tracking-wider text-gold-400">
+                        1. Qual é a tipologia do seu projeto?
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button type="button" onclick="selectType(this, 'Casa Residencial')" class="btn-type p-4 rounded-xl border border-gold-500 bg-gold-500/10 text-white font-serif text-sm text-left transition flex items-center justify-between">
+                            <span>🏡 Casa Residencial</span>
+                            <span class="text-gold-400">✓</span>
+                        </button>
+                        <button type="button" onclick="selectType(this, 'Apartamento / Interiores')" class="btn-type p-4 rounded-xl border border-stone-800 bg-stone-900 hover:border-stone-700 text-stone-300 font-serif text-sm text-left transition flex items-center justify-between">
+                            <span>🏢 Apartamento / Interiores</span>
+                            <span class="text-gold-400 hidden">✓</span>
+                        </button>
+                        <button type="button" onclick="selectType(this, 'Comercial / Corporativo')" class="btn-type p-4 rounded-xl border border-stone-800 bg-stone-900 hover:border-stone-700 text-stone-300 font-serif text-sm text-left transition flex items-center justify-between">
+                            <span>💼 Comercial / Clínica</span>
+                            <span class="text-gold-400 hidden">✓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Passo 2: Área Estimada -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <label class="text-xs font-heading font-bold uppercase tracking-wider text-gold-400">
+                            2. Qual é a metragem quadrada estimada?
+                        </label>
+                        <span id="range-val" class="font-serif text-lg font-bold text-white">250 m²</span>
+                    </div>
+                    <input type="range" id="sqm-slider" min="50" max="1000" step="25" value="250" 
+                           class="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-gold-500"
+                           oninput="updateCalc()">
+                    <div class="flex justify-between text-[10px] font-heading text-stone-500 uppercase tracking-widest">
+                        <span>50 m²</span>
+                        <span>500 m²</span>
+                        <span>1.000+ m²</span>
+                    </div>
+                </div>
+
+                <!-- Passo 3: Escopo de Atuação Desejado -->
+                <div class="space-y-3">
+                    <label class="text-xs font-heading font-bold uppercase tracking-wider text-gold-400">
+                        3. Nível de suporte desejado:
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-stone-900 border border-stone-800 cursor-pointer hover:border-gold-500/40 transition">
+                            <input type="checkbox" id="check-interiores" checked onchange="updateCalc()" class="w-4 h-4 rounded accent-gold-500">
+                            <span class="text-xs text-stone-300 font-medium">Design de Interiores & Marcenaria Detalhada</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 rounded-xl bg-stone-900 border border-stone-800 cursor-pointer hover:border-gold-500/40 transition">
+                            <input type="checkbox" id="check-gerenciamento" checked onchange="updateCalc()" class="w-4 h-4 rounded accent-gold-500">
+                            <span class="text-xs text-stone-300 font-medium">Gerenciamento e Acompanhamento de Obra</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Painel de Resultado do Simulador -->
+                <div class="p-6 rounded-2xl bg-stone-900 border border-gold-500/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="space-y-1 text-center sm:text-left">
+                        <div class="text-[11px] font-heading font-bold uppercase tracking-widest text-gold-400">Tempo Médio de Elaboração do Projeto</div>
+                        <div id="est-time" class="text-2xl font-serif font-bold text-white">45 a 60 dias úteis</div>
+                        <div id="est-summary" class="text-xs text-stone-400">Projeto arquitetônico completo, 3D foto-realista e caderno executivo.</div>
+                    </div>
+
+                    <a id="btn-calc-wa" href="#" target="_blank"
+                       class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-xs tracking-widest uppercase shadow-xl flex items-center justify-center gap-2 transition transform hover:scale-105">
+                        <span>📲 Enviar Simulação no WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- METODOLOGIA EM 4 ETAPAS                    -->
+    <!-- ========================================== -->
+    <section id="metodologia" class="py-24 bg-stonebg-950 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-heading font-bold uppercase tracking-[0.25em] text-gold-500">
+                    Do Rascunho à Chave
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">
+                    Como Conduzimos Seu Sonho
+                </h2>
+                <p class="text-stone-400 text-base font-light">
+                    Um processo transparente, metódico e prazeroso em cada fase.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                
+                <div class="p-6 rounded-2xl bg-stonebg-900 border border-stone-800 relative">
+                    <div class="text-3xl font-serif font-bold text-gold-500 mb-4">01</div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Imersão & Briefing</h3>
+                    <p class="text-xs text-stone-400 leading-relaxed font-light">
+                        Entendemos a rotina, hábitos e desejos da sua família. Levantamento topográfico e estudo bioclimático do terreno.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-stonebg-900 border border-stone-800 relative">
+                    <div class="text-3xl font-serif font-bold text-gold-500 mb-4">02</div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Conceito 3D Real</h3>
+                    <p class="text-xs text-stone-400 leading-relaxed font-light">
+                        Apresentação com imagens hiper-realistas e tour virtual para você sentir a iluminação e os espaços antes de construir.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-stonebg-900 border border-stone-800 relative">
+                    <div class="text-3xl font-serif font-bold text-gold-500 mb-4">03</div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Projeto Executivo</h3>
+                    <p class="text-xs text-stone-400 leading-relaxed font-light">
+                        Plantas elétricas, hidráulicas, marcenaria milimétrica e aprovação em condomínio e prefeitura sem dor de cabeça.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-stonebg-900 border border-stone-800 relative">
+                    <div class="text-3xl font-serif font-bold text-gold-500 mb-4">04</div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Obra & Entrega</h3>
+                    <p class="text-xs text-stone-400 leading-relaxed font-light">
+                        Supervisão técnica rigorosa para garantir fidelidade absoluta ao projeto aprovado, dentro do prazo e orçamento.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CONTATO & AGENDAMENTO                      -->
+    <!-- ========================================== -->
+    <section id="contato" class="py-24 bg-stonebg-900 border-t border-stone-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-heading font-bold uppercase tracking-[0.25em] text-gold-500">
+                        Inicie Seu Projeto
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+                        Vamos conversar sobre a sua futura residência?
+                    </h2>
+                    <p class="text-stone-300 font-light text-base leading-relaxed">
+                        Atendemos um número restrito de projetos simultâneos para assegurar dedicação artesanal a cada cliente. Entre em contato para verificar a disponibilidade de agenda.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4 text-sm text-stone-300">
+                            <span class="w-10 h-10 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-gold-400 font-bold">📍</span>
+                            <div>
+                                <div class="text-[10px] font-heading font-bold uppercase text-stone-500">Atendimento</div>
+                                <div>Rio de Janeiro, Niterói, Região Serrana & Todo o Brasil</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm text-stone-300">
+                            <span class="w-10 h-10 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-gold-400 font-bold">📲</span>
+                            <div>
+                                <div class="text-[10px] font-heading font-bold uppercase text-stone-500">WhatsApp Comercial</div>
+                                <div class="font-serif text-white font-bold">(21) 99999-9999</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm text-stone-300">
+                            <span class="w-10 h-10 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-gold-400 font-bold">✉️</span>
+                            <div>
+                                <div class="text-[10px] font-heading font-bold uppercase text-stone-500">E-mail</div>
+                                <div>contato@andersonviana.arq.br</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato Direto -->
+                <div class="lg:col-span-6 bg-stonebg-950 p-8 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl space-y-4">
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Solicitar Reunião com Anderson Viana</h3>
+                    
+                    <div>
+                        <label class="block text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Seu Nome Completo</label>
+                        <input type="text" id="lead-name" placeholder="Ex: Roberto Albuquerque" class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Seu WhatsApp</label>
+                            <input type="text" id="lead-phone" placeholder="(21) 99999-9999" class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Cidade / Bairro da Obra</label>
+                            <input type="text" id="lead-city" placeholder="Ex: Barra da Tijuca, RJ" class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Conte resumidamente sobre o projeto</label>
+                        <textarea id="lead-msg" rows="3" placeholder="Ex: Comprei um terreno em condomínio fechado e pretendo construir uma casa linear de 300m²..." class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition"></textarea>
+                    </div>
+
+                    <button onclick="submitLeadForm()" 
+                            class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-stonebg-950 font-heading font-bold text-xs tracking-widest uppercase shadow-xl transition transform hover:scale-[1.01]">
+                        Enviar Solicitação via WhatsApp
+                    </button>
+                    
+                    <div class="text-[11px] text-stone-500 text-center">
+                        🔒 Seus dados são confidenciais e utilizados unicamente para contato profissional.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER COM LOGOTIPO EM DESTAQUE           -->
+    <!-- ========================================== -->
+    <footer class="bg-black py-16 text-stone-500 text-xs border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+            
+            <!-- Logo no Rodapé -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" fill="#151413" stroke="#c5a880" stroke-width="2.5" />
+                        <polyline points="28,70 50,22 72,70" fill="none" stroke="#f4ebd4" stroke-width="3"/>
+                        <line x1="37" y1="52" x2="63" y2="52" stroke="#c5a880" stroke-width="2.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="font-serif font-bold text-white tracking-widest uppercase">Anderson Viana</div>
+                    <div class="text-[9px] font-heading tracking-widest uppercase text-gold-500">Arquitetura & Interiores</div>
+                </div>
+            </div>
+
+            <div class="text-center md:text-right">
+                <div>© 2026 Anderson Viana Arquitetura. Todos os direitos reservados.</div>
+                <div class="text-stone-600 mt-1">Registro no Conselho de Arquitetura e Urbanismo (CAU).</div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- BOTAO FLUTUANTE DE WHATSAPP                -->
+    <!-- ========================================== -->
+    <a href="https://wa.me/5521999999999?text=Olá%20Anderson%20Viana,%20gostaria%20de%20solicitar%20uma%20reunião%20sobre%20projeto." target="_blank"
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1EBE5D] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 transition duration-300"
+       title="Falar com o Arquiteto">
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT: LÓGICA DO SIMULADOR E FORM     -->
+    <!-- ========================================== -->
+    <script>
+        let selectedTypology = "Casa Residencial";
+
+        function selectType(btn, typeName) {
+            selectedTypology = typeName;
+            document.querySelectorAll('.btn-type').forEach(b => {
+                b.classList.remove('border-gold-500', 'bg-gold-500/10', 'text-white');
+                b.classList.add('border-stone-800', 'bg-stone-900', 'text-stone-300');
+                const check = b.querySelector('.text-gold-400');
+                if (check) check.classList.add('hidden');
+            });
+            btn.classList.remove('border-stone-800', 'bg-stone-900', 'text-stone-300');
+            btn.classList.add('border-gold-500', 'bg-gold-500/10', 'text-white');
+            const check = btn.querySelector('.text-gold-400');
+            if (check) check.classList.remove('hidden');
+            updateCalc();
+        }
+
+        function updateCalc() {
+            const sqm = document.getElementById('sqm-slider').value;
+            document.getElementById('range-val').innerText = `${sqm} m²`;
+
+            const comInteriores = document.getElementById('check-interiores').checked;
+            const comObra = document.getElementById('check-gerenciamento').checked;
+
+            let diasMin = 30;
+            let diasMax = 45;
+
+            if (sqm > 200) { diasMin += 15; diasMax += 20; }
+            if (sqm > 450) { diasMin += 20; diasMax += 30; }
+            if (comInteriores) { diasMin += 10; diasMax += 15; }
+
+            document.getElementById('est-time').innerText = `${diasMin} a ${diasMax} dias úteis`;
+
+            let extras = [];
+            if (comInteriores) extras.push("Interiores");
+            if (comObra) extras.push("Acompanhamento de Obra");
+            const extrasStr = extras.length ? ` (+ ${extras.join(' e ')})` : '';
+
+            document.getElementById('est-summary').innerText = `Projeto para ${selectedTypology} com ${sqm}m²${extrasStr}.`;
+
+            // Atualiza link do WhatsApp
+            const textMsg = encodeURIComponent(`Olá Anderson Viana! Realizei a simulação no seu site:\n- Tipo: ${selectedTypology}\n- Metragem: ${sqm}m²\n- Escopo: ${extras.join(', ') || 'Apenas Arquitetônico'}\nGostaria de agendar uma reunião para alinhamento.`);
+            document.getElementById('btn-calc-wa').href = `https://wa.me/5521999999999?text=${textMsg}`;
+        }
+
+        function submitLeadForm() {
+            const name = document.getElementById('lead-name').value.trim() || 'Interessado';
+            const phone = document.getElementById('lead-phone').value.trim() || 'Não informado';
+            const city = document.getElementById('lead-city').value.trim() || 'RJ';
+            const msg = document.getElementById('lead-msg').value.trim() || 'Gostaria de conhecer os projetos.';
+
+            const fullText = encodeURIComponent(`Olá Anderson Viana!\nMeu nome é ${name}.\nTelefone: ${phone}\nLocal da Obra: ${city}\nMensagem: ${msg}\nGostaria de solicitar uma reunião.`);
+            window.open(`https://wa.me/5521999999999?text=${fullText}`, '_blank');
+        }
+
+        // Inicia valores do simulador
+        updateCalc();
+    </script>
+</body>
+</html>
